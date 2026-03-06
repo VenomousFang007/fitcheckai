@@ -1,0 +1,140 @@
+@import "tailwindcss";
+
+/* ── Custom Theme (Tailwind v4 CSS-first config) ────────────── */
+@theme {
+  --color-classik-black: #1E1E1E;
+  --color-classik-dark: #4A2E1B;
+  --color-classik-warm: #806248;
+  --color-classik-taupe: #a5907b;
+  --color-classik-beige: #E8DFD2;
+  --color-classik-sage: #4FAF9A;
+  --color-carbon: #E8DFD2;
+
+  --font-manrope: "Manrope", sans-serif;
+}
+
+/* ── Base styles ─────────────────────────────────────────────── */
+body {
+  background-color: #E8DFD2;
+  color: #1E1E1E;
+  margin: 0;
+  font-family: "Manrope", ui-sans-serif, system-ui, -apple-system,
+    BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial,
+    "Noto Sans", sans-serif;
+}
+
+/* Custom scrollbar hiding */
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+.no-scrollbar {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+/* Input zoom fix */
+input,
+textarea,
+select {
+  -webkit-text-size-adjust: 100%;
+  touch-action: manipulation;
+}
+
+/* ── Animations ──────────────────────────────────────────────── */
+@keyframes fade-in {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+.animate-fade-in {
+  animation: fade-in 0.8s cubic-bezier(0.2, 1, 0.3, 1) forwards;
+}
+
+@keyframes slide-up-sheet {
+  from {
+    transform: translateY(100%);
+  }
+  to {
+    transform: translateY(0);
+  }
+}
+.animate-slide-up-sheet {
+  animation: slide-up-sheet 0.4s cubic-bezier(0.19, 1, 0.22, 1) forwards;
+}
+
+@keyframes spin-ring {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+.animate-spin-ring {
+  animation: spin-ring 1.2s linear infinite;
+}
+
+@keyframes luxury-gradient {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+.animate-luxury-button {
+  background-size: 200% auto;
+  animation: luxury-gradient 10s linear infinite;
+}
+
+@keyframes ambient-slow {
+  0%,
+  100% {
+    transform: translate(0, 0) scale(1);
+    opacity: 0.2;
+  }
+  50% {
+    transform: translate(3%, 3%) scale(1.05);
+    opacity: 0.35;
+  }
+}
+.animate-ambient-calm {
+  animation: ambient-slow 20s ease-in-out infinite;
+}
+
+@keyframes luxury-shimmer {
+  0% {
+    transform: translateX(-100%);
+  }
+  100% {
+    transform: translateX(100%);
+  }
+}
+.shimmer-mask {
+  position: relative;
+  overflow: hidden;
+}
+.shimmer-mask::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgba(255, 255, 255, 0.2),
+    transparent
+  );
+  transform: translateX(-100%);
+  animation: luxury-shimmer 4s infinite;
+}

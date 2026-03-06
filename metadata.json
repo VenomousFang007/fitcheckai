@@ -1,0 +1,8 @@
+{
+  "name": "FitCheckAI",
+  "description": "Premium AI-powered fashion analysis and outfit feedback.",
+  "requestFramePermissions": [
+    "camera",
+    "microphone"
+  ]
+}
